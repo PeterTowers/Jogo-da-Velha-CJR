@@ -20,43 +20,14 @@ for (i=0;i<3;i++)
   mat[i] = new Array (3);
 }
 res();
-document.getElementById("a1").onclick = function() {
-  if (document.getElementById("a1").style.backgroundImage == "") {
-        mat[0][0] = atual;
-  document.getElementById("a1").style.backgroundImage = atual; jogada = jogada +1; player = jogada%2;
-  if (verifica() == true){ alerta[player]();}
-    if (player == 0)
-    {
-      atual = o;
-    }
-    if (player == 1)
-    {
-      atual = x;
-    }
 
-  }
-}
-document.getElementById("a2").onclick = function() {
-  if (document.getElementById("a2").style.backgroundImage == "") {
-        mat[0][1] = atual;
-  document.getElementById("a2").style.backgroundImage = atual; jogada = jogada +1; player = jogada%2;
-  if (verifica() == true){ alerta[player]();}
-    if (player == 0)
-    {
-      atual = o;
-    }
-    if (player == 1)
-    {
-      atual = x;
-    }
+function clickCelula(id, i, j){
+  return function(){
 
-  }
-}
-document.getElementById("a3").onclick = function() {
-  if (document.getElementById("a3").style.backgroundImage == "") {
-          mat[0][2] = atual;
-  document.getElementById("a3").style.backgroundImage = atual; jogada = jogada +1; player = jogada%2;
-  if (verifica() == true){ alerta[player]();}
+    if (document.getElementById(id).style.backgroundImage == "") {
+      mat[i][j] = atual;
+      document.getElementById(id).style.backgroundImage = atual; jogada = jogada +1; player = jogada%2;
+      if (verifica() == true){ alerta[player]();}
       if (player == 0)
       {
         atual = o;
@@ -67,103 +38,18 @@ document.getElementById("a3").onclick = function() {
       }
 
     }
+  }
 }
-document.getElementById("b1").onclick = function() {
-  if (document.getElementById("b1").style.backgroundImage == "") {
-      mat[1][0] = atual;
-  document.getElementById("b1").style.backgroundImage = atual; jogada = jogada +1; player = jogada%2;
-  if (verifica() == true){ alerta[player]();}
-  if (player == 0)
-  {
-    atual = o;
-  }
-  if (player == 1)
-  {
-    atual = x;
-  }
 
-  }
-}
-document.getElementById("b2").onclick = function() {
-  if (document.getElementById("b2").style.backgroundImage == "") {
-      mat[1][1] = atual;
-  document.getElementById("b2").style.backgroundImage = atual; jogada = jogada +1; player = jogada%2;
-  if (verifica() == true){ alerta[player]();}
-  if (player == 0)
-  {
-    atual = o;
-  }
-  if (player == 1)
-  {
-    atual = x;
-  }
-
-  }
-}
-document.getElementById("b3").onclick = function() {
-  if (document.getElementById("b3").style.backgroundImage == "") {
-      mat[1][2] = atual;
-  document.getElementById("b3").style.backgroundImage = atual; jogada = jogada +1; player = jogada%2;
-  if (verifica() == true){ alerta[player]();}
-  if (player == 0)
-  {
-    atual = o;
-  }
-  if (player == 1)
-  {
-    atual = x;
-  }
-
-  }
-}
-document.getElementById("c1").onclick = function() {
-  if (document.getElementById("c1").style.backgroundImage == "") {
-      mat[2][0] = atual;
-  document.getElementById("c1").style.backgroundImage = atual; jogada = jogada +1; player = jogada%2;
-  if (verifica() == true){ alerta[player]();}
-  if (player == 0)
-  {
-    atual = o;
-  }
-  if (player == 1)
-  {
-    atual = x;
-  }
-
-  }
-}
-document.getElementById("c2").onclick = function() {
-  if (document.getElementById("c2").style.backgroundImage == "") {
-      mat[2][1] = atual;
-  document.getElementById("c2").style.backgroundImage = atual; jogada = jogada +1; player = jogada%2;
-  if (verifica() == true){ alerta[player]();}
-  if (player == 0)
-  {
-    atual = o;
-  }
-  if (player == 1)
-  {
-    atual = x;
-  }
-
-  }
-}
-document.getElementById("c3").onclick = function() {
-  if (document.getElementById("c3").style.backgroundImage == "") {
-  mat[2][2] = atual;
-  document.getElementById("c3").style.backgroundImage = atual; jogada = jogada +1; player = jogada%2;
-  if (verifica() == true){ alerta[player]();}
-  if (player == 0)
-  {
-    atual = o;
-  }
-  if (player == 1)
-  {
-    atual = x;
-  }
-
-  }
-}
+document.getElementById("a1").onclick = clickCelula("a1", 0, 0);
+document.getElementById("a2").onclick = clickCelula("a2", 0, 1);
+document.getElementById("a3").onclick = clickCelula("a3", 0, 2);
+document.getElementById("b1").onclick = clickCelula("b1", 1, 0);
+document.getElementById("b2").onclick = clickCelula("b2", 1, 1);
+document.getElementById("b3").onclick = clickCelula("b3", 1, 2);
+document.getElementById("c1").onclick = clickCelula("c1", 2, 0);
+document.getElementById("c2").onclick = clickCelula("c2", 2, 1);
+document.getElementById("c3").onclick = clickCelula("c3", 2, 2);
 document.getElementById("reset").onclick =  res;
 function res() {
   resetimg("a1");
