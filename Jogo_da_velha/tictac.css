@@ -1,0 +1,246 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    height: 30%;
+    background-color: #191970;
+}
+
+.headerBoxLeft {
+    display: flex;
+    align-items: flex-end;
+    width: 12.5%;
+    color: white
+}
+
+.headerBoxCenter {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    color: white;
+}
+
+.headerBoxRight {
+    display: flex;
+    align-items: flex-end;
+    width: 12.5%;
+    color: white
+}
+
+.content {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 50%;
+    margin-top: 2.5%;
+}
+
+.grid {
+    width: 500px;
+    height: 500px;
+}
+
+.wrapper{
+    width:100%;
+     height: 75vh;
+}
+
+.center {
+    padding-top: 100px;
+    margin: auto;
+    width: 38%;
+
+}
+
+img{
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+
+    float:right;
+}
+
+#a1 {
+    height: 149px;
+    width: 149px;
+    border-bottom: solid 1px;
+    border-right: solid 1px;
+    display: inline-block;
+    margin: 0px;
+    background-color: white;
+}
+
+#a2 {
+    height: 149px;
+    width: 149px;
+    border-bottom: solid 1px;
+    border-left: solid 1px;
+    border-right: solid 1px;
+    display: inline-block;
+    margin: 0px;
+    background-color: white;
+}
+
+#a3 {
+    height: 149px;
+    width: 149px;
+    border-bottom: solid 1px;
+    border-left: solid 1px;
+    display: inline-block;
+    margin: 0px;
+    background-color: white;
+}
+
+#b1 {
+    height: 149px;
+    width: 149px;
+    border-bottom: solid 1px;
+    border-right: solid 1px;
+    border-top: solid 1px;
+    display: inline-block;
+    margin: 0px;
+    background-color: white;
+}
+
+#b2 {
+    height: 149px;
+    width: 149px;
+    border: solid 1px;
+    display: inline-block;
+    margin: 0px;
+    background-color: white;
+}
+
+#b3 {
+    height: 149px;
+    width: 149px;
+    border-bottom: solid 1px;
+    border-left: solid 1px;
+    border-top: solid 1px;
+    display: inline-block;
+    margin: 0px;
+    background-color: white;
+}
+
+#c1 {
+    height: 149px;
+    width: 149px;
+    border-top: solid 1px;
+    border-right: solid 1px;
+    display: inline-block;
+    margin: 0px;
+    background-color: white;
+}
+#c2 {
+    height: 149px;
+    width: 149px;
+    border-top: solid 1px;
+    border-left: solid 1px;
+    border-right: solid 1px;
+    display: inline-block;
+    margin: 0px;
+    background-color: white;
+}
+#c3 {
+    height: 149px;
+    width: 149px;
+    border-top: solid 1px;
+    border-left: solid 1px;
+    display: inline-block;
+    margin: 0px;
+    background-color: white;
+}
+.button{
+    margin-left: 35%;
+    margin-top: 3%;
+    border-radius: 6px;
+}
+#reset{
+    background-color: #28a745;
+    width: 15%;
+    height: 10%;
+    border-radius: 5px;
+    border:solid 2px #28a745;
+    font-weight: bold;
+    padding: 1%;
+}
+#reset span{
+    color : white;
+}
+#reset:hover{
+    border-color: #28a745;
+    background-color: black;
+}
+.imagem{
+    background-color: #191970;
+    width: 100%;
+    height: 25vh;
+}
+.jogo{
+    border-radius: 0px;
+    border: solid 2px white;
+
+}
+.jogo:hover{
+    border-radius: 5px;
+    border: solid 2px white;
+}
+.center{
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+}
+
+footer{
+    padding-left: 0.3em;
+    padding-top: 0.5em;
+    position: fixed;
+    bottom: 0%;
+    background-color: #DEE2E6;
+    width: 100%;
+    height: 4vh;
+    
+}
+footer span{
+    font-size: 20px;
+    margin-bottom: 1%;
+}
+.imagem span {
+    color: white;
+    position: absolute;
+    font-size: 100px;
+    font-weight: bold;
+    left : 29%;
+    top: 5vh;
+    color: #DCDCDC;
+}
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+#jogador{
+    /* position: absolute;
+    font-size: 40px;
+    top: 17.5vh;
+    left: 40%; */
+}
