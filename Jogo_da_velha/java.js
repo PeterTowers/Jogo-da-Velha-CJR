@@ -38,7 +38,7 @@ res();  // Chamada da funcao res() para inicializar o tabuleiro
 function clickCelula(id, i, j) {  // Parametros indicam: celula clicada, linha e coluna, respectivamente
   return function() {
 
-    if (document.getElementById(id).style.backgroundImage == "") {// Condicao para evitar sobrescrita
+    if (document.getElementById(id).style.backgroundImage == null) {// Condicao para evitar sobrescrita
       mat[i][j] = atual;                                          // Escreve a jogada na matriz
       document.getElementById(id).style.backgroundImage = atual;  // Imprime a jogada na pagina
       jogada++;                                             // Incrementa o número de jogadas
@@ -84,19 +84,22 @@ function res() {  // (Re)Inicializa o tabuleiro com os valores default
   resetimg("c1");
   resetimg("c2");
   resetimg("c3");
+
   jogada = 0;
   player = 0;
   atual = "url('o.png')";
+  cor = "red";
+
   for(i=0;i<3;i++){
     for(j=0;j<3;j++){
-      mat[i][j] = "";
+      mat[i][j] = null;
     }
   }
 }
 
 /* ----- ----- */
 function resetimg(img){
-  document.getElementById(img).style.backgroundImage = "";
+  document.getElementById(img).style.backgroundImage = null;
 }
 
 /* ----- Funcao verifica() ----- */
@@ -105,20 +108,20 @@ function verifica() { // Verifica se um dos jogadores ganhou
   for(i=0;i<3;i++) {  // Laco para percorrer a matriz
     
     /* Verifica se as linhas nao estao vazias e se os valores armazenados sao iguais */
-    if (mat[i][1] != "" && mat[i][0] == mat[i][1] && mat[i][1] == mat[i][2])
+    if ( (mat[i][1] != null) && (mat[i][0] == mat[i][1]) && (mat[i][1] == mat[i][2]) )
     {
       return true;  // Caso a condicao tenha sido satisfeita, retorna 'true' indicando vitoria
     }
 
     /* Verifica se as colunas nao estao vazias e se os valores armazenados sao iguais */
-    else if (mat[2][i] != "" && mat[0][i] == mat[1][i] && mat[1][i] == mat[2][i])
+    else if ( (mat[2][i] != null) && (mat[0][i] == mat[1][i]) && (mat[1][i] == mat[2][i]) )
     {
       return true;  // Caso a condicao tenha sido satisfeita, retorna 'true' indicando vitoria
     }
   }
 
   /* Verifica se a diagonal principal nao esta vazia e se os valores armazenados sao iguais */
-  if (mat[0][0] != "" && mat[0][0] == mat[1][1] && mat[1][1] == mat[2][2])
+  if ( (mat[0][0] != null) && (mat[0][0] == mat[1][1]) && (mat[1][1] == mat[2][2]) )
   {
     return true;
   }
@@ -126,6 +129,6 @@ function verifica() { // Verifica se um dos jogadores ganhou
   let win = false;  // Inicializacao da variavel para determinar a vitoria na diagonal secundaria
 
   /* Verifica se a diagonal secundaria nao esta vazia e se os valores armazenados sao iguais */
-  win = mat[0][2] != "" && mat[2][0] == mat[1][1] && mat[1][1] == mat[0][2];
+  win = ( (mat[0][2] != null) && (mat[2][0] == mat[1][1]) && (mat[1][1] == mat[0][2]) );
   return win;
 }
