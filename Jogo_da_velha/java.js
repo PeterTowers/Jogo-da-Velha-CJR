@@ -8,7 +8,8 @@ var player = 0;   // Define o jogador atual (0 = circulo, 1 = x)
 var o = "url('o.png')";   // Relaciona a variavel com a imagem do circulo
 var x = "url('x.png')";   // Relaciona com a imagem do xis
 var atual = o;            // Define a imagem do jogador atual (comeca com circulo)
-var cor = "red"           // Define a cor do texto "Jogador atual", para indicar esse
+var cor = "red";          // Define a cor do texto "Jogador atual", para indicar esse
+document.getElementById("jogador").style.color = cor;
 
 /* ----- Vetor de funcoes de alerta ----- */
 var alerta = new Array (3);     // Definicao do vetor
@@ -38,25 +39,26 @@ res();  // Chamada da funcao res() para inicializar o tabuleiro
 function clickCelula(id, i, j) {  // Parametros indicam: celula clicada, linha e coluna, respectivamente
   return function() {
 
-    if (document.getElementById(id).style.backgroundImage == null) {// Condicao para evitar sobrescrita
+    if (document.getElementById(id).style.backgroundImage == "") {// Condicao para evitar sobrescrita
       mat[i][j] = atual;                                          // Escreve a jogada na matriz
       document.getElementById(id).style.backgroundImage = atual;  // Imprime a jogada na pagina
       jogada++;                                             // Incrementa o número de jogadas
       player = jogada % 2;                                  // Define o proximo jogador
-      document.getElementById("jogador").style.color = cor; // Muda a cor de indicacao do jogador atual
       
-      if (verifica() == true) { alerta[player](); } // Chama a funcao verifica() para determinar se
-                                                    // um jogador ganhou
+      if ( (jogada > 5) && (verifica() == true) ) { alerta[player](); } // Chama a funcao verifica() para determinar se um jogador ganhou
+
       if (player == 0)  // Condicional para definir o proximo jogador
       {
         atual = o;
-        cor = "blue";
+        cor = "red";
       }
       else
       {
         atual = x;
-        cor = "red";
+        cor = "blue";
       }
+
+      document.getElementById("jogador").style.color = cor; // Muda a cor de indicacao do jogador atual
     }
   }
 }
@@ -89,10 +91,11 @@ function res() {  // (Re)Inicializa o tabuleiro com os valores default
   player = 0;
   atual = "url('o.png')";
   cor = "red";
+  document.getElementById("jogador").style.color = cor;
 
   for(i=0;i<3;i++){
     for(j=0;j<3;j++){
-      mat[i][j] = null;
+      mat[i][j] = "";
     }
   }
 }
@@ -108,20 +111,20 @@ function verifica() { // Verifica se um dos jogadores ganhou
   for(i=0;i<3;i++) {  // Laco para percorrer a matriz
     
     /* Verifica se as linhas nao estao vazias e se os valores armazenados sao iguais */
-    if ( (mat[i][1] != null) && (mat[i][0] == mat[i][1]) && (mat[i][1] == mat[i][2]) )
+    if ( (mat[i][1] != "") && (mat[i][0] == mat[i][1]) && (mat[i][1] == mat[i][2]) )
     {
       return true;  // Caso a condicao tenha sido satisfeita, retorna 'true' indicando vitoria
     }
 
     /* Verifica se as colunas nao estao vazias e se os valores armazenados sao iguais */
-    else if ( (mat[2][i] != null) && (mat[0][i] == mat[1][i]) && (mat[1][i] == mat[2][i]) )
+    else if ( (mat[2][i] != "") && (mat[0][i] == mat[1][i]) && (mat[1][i] == mat[2][i]) )
     {
       return true;  // Caso a condicao tenha sido satisfeita, retorna 'true' indicando vitoria
     }
   }
 
   /* Verifica se a diagonal principal nao esta vazia e se os valores armazenados sao iguais */
-  if ( (mat[0][0] != null) && (mat[0][0] == mat[1][1]) && (mat[1][1] == mat[2][2]) )
+  if ( (mat[0][0] != "") && (mat[0][0] == mat[1][1]) && (mat[1][1] == mat[2][2]) )
   {
     return true;
   }
@@ -129,6 +132,6 @@ function verifica() { // Verifica se um dos jogadores ganhou
   let win = false;  // Inicializacao da variavel para determinar a vitoria na diagonal secundaria
 
   /* Verifica se a diagonal secundaria nao esta vazia e se os valores armazenados sao iguais */
-  win = ( (mat[0][2] != null) && (mat[2][0] == mat[1][1]) && (mat[1][1] == mat[0][2]) );
+  win = ( (mat[0][2] != "") && (mat[2][0] == mat[1][1]) && (mat[1][1] == mat[0][2]) );
   return win;
 }
