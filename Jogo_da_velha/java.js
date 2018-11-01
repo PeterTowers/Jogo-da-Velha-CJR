@@ -5,8 +5,8 @@ var jogada = 0;   // Conta o numero de jogadas
 var player = 0;   // Define o jogador atual (0 = circulo, 1 = x)
 
 /* ----- Variaveis relacionadas a CSS ----- */
-var o = "url('o.png')";   // Relaciona a variavel com a imagem do circulo
-var x = "url('x.png')";   // Relaciona com a imagem do xis
+var o = "url('img/o.png')";   // Relaciona a variavel com a imagem do circulo
+var x = "url('img/x.png')";   // Relaciona com a imagem do xis
 var atual = o;            // Define a imagem do jogador atual (comeca com circulo)
 var cor = "red";          // Define a cor do texto "Jogador atual", para indicar esse
 document.getElementById("jogador").style.color = cor;
@@ -50,7 +50,7 @@ function clickCelula(id, i, j) {  // Parametros indicam: celula clicada, linha e
       jogada++;                                             // Incrementa o número de jogadas
       player = jogada % 2;                                  // Define o proximo jogador
       
-      if ( (jogada > 5) && (verifica() == true) ) { alerta[player](); } // Chama a funcao verifica() para determinar se um jogador ganhou
+      if ( (jogada > 4) && (verifica() == true) ) { alerta[player](); } // Chama a funcao verifica() para determinar se um jogador ganhou
       else if (jogada == 9) { alerta[2](); }                            // Caso ninguem tenha ganhado apos 9 jogadas, determina que deu velha
 
       if (player == 0)  // Condicional para definir o proximo jogador
