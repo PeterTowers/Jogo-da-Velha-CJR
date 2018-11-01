@@ -23,6 +23,11 @@ alerta[1] = function() {
   res();                        // Chamada da funcao res() para limpar o tabuleiro
 }
 
+alerta[2] = function() {
+  alert("Deu velha!");          // Alerta de velha
+  res();                        // Chamada da funcao res() para limpar o tabuleiro
+}
+
 /* ----- Matriz do tabuleiro ----- */
 var mat = new Array (3);    // Utilizada para determinar a condicao de vitoria
 for (i=0;i<3;i++)           // Laco para fazer a matriz
@@ -46,6 +51,7 @@ function clickCelula(id, i, j) {  // Parametros indicam: celula clicada, linha e
       player = jogada % 2;                                  // Define o proximo jogador
       
       if ( (jogada > 5) && (verifica() == true) ) { alerta[player](); } // Chama a funcao verifica() para determinar se um jogador ganhou
+      else if (jogada == 9) { alerta[2](); }                            // Caso ninguem tenha ganhado apos 9 jogadas, determina que deu velha
 
       if (player == 0)  // Condicional para definir o proximo jogador
       {
@@ -77,15 +83,15 @@ document.getElementById("reset").onclick =  res;  // Funcao relacionada ao botao
 
 /* ----- Funcao res() ----- */
 function res() {  // (Re)Inicializa o tabuleiro com os valores default
-  resetimg("a1");
-  resetimg("a2");
-  resetimg("a3");
-  resetimg("b1");
-  resetimg("b2");
-  resetimg("b3");
-  resetimg("c1");
-  resetimg("c2");
-  resetimg("c3");
+  resetImg("a1");
+  resetImg("a2");
+  resetImg("a3");
+  resetImg("b1");
+  resetImg("b2");
+  resetImg("b3");
+  resetImg("c1");
+  resetImg("c2");
+  resetImg("c3");
 
   jogada = 0;
   player = 0;
@@ -100,8 +106,8 @@ function res() {  // (Re)Inicializa o tabuleiro com os valores default
   }
 }
 
-/* ----- ----- */
-function resetimg(img){
+/* ----- Funcao resetImg ----- */
+function resetImg(img){   // Limpa as imagens do tabuleiro
   document.getElementById(img).style.backgroundImage = null;
 }
 
