@@ -55,6 +55,8 @@ function clickCelula(id, i, j) {  // Parametros indicam: celula clicada, linha e
       jogada++;                                             // Incrementa o número de jogadas
       player = jogada % 2;                                  // Define o proximo jogador
       
+      document.getElementById("numJogadas").innerHTML = jogada; // Indica o numero de jogadas que aconteceram
+      
       if ( (jogada > 4) && (verifica() == true) ) { alerta[player](); } // Chama a funcao verifica() para determinar se um jogador ganhou
       else if (jogada == 9) { alerta[2](); }                            // Caso ninguem tenha ganhado apos 9 jogadas, determina que deu velha
 
@@ -70,7 +72,6 @@ function clickCelula(id, i, j) {  // Parametros indicam: celula clicada, linha e
       }
 
       document.getElementById("jogador").style.color = cor; // Muda a cor de indicacao do jogador atual
-      document.getElementById("numJogadas").innerHTML = jogada; // Indica o numero de jogadas que aconteceram
     }
   }
 }
