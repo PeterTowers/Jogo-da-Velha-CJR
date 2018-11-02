@@ -1,6 +1,6 @@
-##Jogo da velha
-####Autores: Oscar Silva, Pedro Fernandes e Pedro Torres
-######Grupo 3
+## Jogo da velha
+#### Autores: Oscar Silva, Pedro Fernandes e Pedro Torres
+###### Grupo 3
 
 Repositório para o projeto desenvolvido durante o Processo Trainee da CJR, com
 o objetivo de desenvolver um jogo da velha em uma página web utilizando
