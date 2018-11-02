@@ -2,25 +2,30 @@
 
 /* ----- Variaveis numericas ----- */
 var jogada = 0;   // Conta o numero de jogadas
-var player = 0;   // Define o jogador atual (0 = circulo, 1 = x)
+var player = 0;   // Define o jogador atual (0 = circulo, 1 = X)
+var placarC = 0;  // Variavel para guardar o placar do jogador circulo
+var placarX = 0;  // Variavel para guardar o placar do jogador X
 
 /* ----- Variaveis relacionadas a CSS ----- */
-var o = "url('img/o.png')";   // Relaciona a variavel com a imagem do circulo
-var x = "url('img/x.png')";   // Relaciona com a imagem do xis
+var o = "url('o.png')";   // Relaciona a variavel com a imagem do circulo
+var x = "url('x.png')";   // Relaciona com a imagem do xis
 var atual = o;            // Define a imagem do jogador atual (comeca com circulo)
-var cor = "red";          // Define a cor do texto "Jogador atual", para indicar esse
-document.getElementById("jogador").style.color = cor;
+var cor = "crimson";      // Define a cor do texto "Jogador atual", para indicar esse
 
 /* ----- Vetor de funcoes de alerta ----- */
 var alerta = new Array (3);     // Definicao do vetor
 alerta[0] = function() {
   alert("O jogador X venceu!")  // Alerta de vitoria do jogador X
   res();                        // Chamada da funcao res() para limpar o tabuleiro
+  placarX++;
+  document.getElementById("placarX").innerHTML = placarX;
 }
 
 alerta[1] = function() {
   alert("O jogador O venceu!")  // Alerta de vitoria do jogador O
   res();                        // Chamada da funcao res() para limpar o tabuleiro
+  placarC++;
+  document.getElementById("placarC").innerHTML = placarC;
 }
 
 alerta[2] = function() {
@@ -56,12 +61,12 @@ function clickCelula(id, i, j) {  // Parametros indicam: celula clicada, linha e
       if (player == 0)  // Condicional para definir o proximo jogador
       {
         atual = o;
-        cor = "red";
+        cor = "Crimson";
       }
       else
       {
         atual = x;
-        cor = "blue";
+        cor = "DodgerBlue";
       }
 
       document.getElementById("jogador").style.color = cor; // Muda a cor de indicacao do jogador atual
@@ -96,7 +101,7 @@ function res() {  // (Re)Inicializa o tabuleiro com os valores default
   jogada = 0;
   player = 0;
   atual = "url('o.png')";
-  cor = "red";
+  cor = "crimson";
   document.getElementById("jogador").style.color = cor;
 
   for(i=0;i<3;i++){
