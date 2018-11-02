@@ -70,6 +70,7 @@ function clickCelula(id, i, j) {  // Parametros indicam: celula clicada, linha e
       }
 
       document.getElementById("jogador").style.color = cor; // Muda a cor de indicacao do jogador atual
+      document.getElementById("numJogadas").innerHTML = jogada; // Indica o numero de jogadas que aconteceram
     }
   }
 }
@@ -103,6 +104,7 @@ function res() {  // (Re)Inicializa o tabuleiro com os valores default
   atual = "url('o.png')";
   cor = "crimson";
   document.getElementById("jogador").style.color = cor;
+  document.getElementById("numJogadas").innerHTML = jogada;
 
   for(i=0;i<3;i++){
     for(j=0;j<3;j++){
