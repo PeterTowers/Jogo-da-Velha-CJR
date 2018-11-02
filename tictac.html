@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" href="tictac.css">
+    <meta charset="utf-8">
+    <title>Jogo da velha - Grupo 3</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="header">
+            <div class="headerBoxLeft">
+                <h3>Placar O</h3>
+                <h2 id="placarC">0</h2>
+            </div>
+
+            <div class="headerBoxCenter">
+                <h1>JOGO DA VELHA</h1>
+                <h2 id="jogador">Jogador atual</h2>
+            </div>
+
+            <div class="headerBoxRight">
+                <h3>Placar X</h3>
+                <h2 id="placarX">0</h2>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="grid">
+                <button class="jogo" id="a1"></button>
+                <button class="jogo" id="a2"></button>
+                <button class="jogo" id="a3"></button>
+
+                <button class="jogo" id="b1"></button>
+                <button class="jogo" id="b2"></button>
+                <button class="jogo" id="b3"></button>
+
+                <button class="jogo" id="c1"></button>
+                <button class="jogo" id="c2"></button>
+                <button class="jogo" id="c3"></button>
+            </div>
+
+            <div class="contentBoxBottom">
+                <div class="resetButton">
+                    <button id="reset">Reset</button>
+                </div>
+
+                <div class="jogadas">
+                    <span>Número de jogadas: </span>
+                    <span id="numJogadas">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footerContainer">
+                <div class="footerTextLeft">
+                    <h5>Todos os direitos reservados</h5>
+                </div>
+
+                <div class="footerTextRight">
+                    <span>desenvolvido por Oscar Silva, Pedro Fernandes e Pedro Torres</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="java.js"></script>
+</body>
+
+</html>
